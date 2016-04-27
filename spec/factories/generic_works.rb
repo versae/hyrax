@@ -1,10 +1,15 @@
 FactoryGirl.define do
+<<<<<<< HEAD
   factory :work, aliases: [:generic_work, :private_generic_work], class: GenericWork do
+=======
+  factory :generic_work do
+>>>>>>> 829a73a... Add IIIF presentation manifests
     transient do
       user { FactoryGirl.create(:user) }
     end
 
     title ["Test title"]
+<<<<<<< HEAD
     visibility Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE
 
     after(:build) do |work, evaluator|
@@ -101,4 +106,17 @@ FactoryGirl.define do
     title ['Test title']
     depositor { FactoryGirl.create(:user).user_key }
   end
+=======
+
+    factory :work_with_one_file do
+      before(:create) do |work, evaluator|
+        work.ordered_members << FactoryGirl.create(:file_set, user: evaluator.user, title: ['A Contained Generic File'])
+      end
+    end
+
+    after(:build) do |work, evaluator|
+      work.apply_depositor_metadata(evaluator.user)
+    end
+  end
+>>>>>>> 829a73a... Add IIIF presentation manifests
 end

@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :file_set do
     transient do
       user { FactoryGirl.create(:user) }
+<<<<<<< HEAD
       content nil
     end
     after(:build) do |fs, evaluator|
@@ -65,6 +66,11 @@ FactoryGirl.define do
         end
         FactoryGirl.create(:generic_work, user: evaluator.user).members << file
       end
+=======
+    end
+    after(:build) do |fs, evaluator|
+      fs.apply_depositor_metadata evaluator.user
+>>>>>>> 829a73a... Add IIIF presentation manifests
     end
   end
 end

@@ -28,6 +28,8 @@ Metrics/MethodLength:
 Style/SymbolProc: # https://github.com/bbatsov/rubocop/issues/3071
   Exclude:
     - 'app/models/hyrax/uploaded_file.rb'
+    - 'app/controllers/catalog_controller.rb'
+    - 'spec/controllers/curation_concerns/generic_works_controller_spec.rb'
 
 Style/IndentationConsistency:
   EnforcedStyle: rails
@@ -74,6 +76,12 @@ Rails:
   Enabled: true
 
 Rails/OutputSafety:
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/iiif_manifest/manifest_factory.rb'
+    - 'lib/iiif_manifest/manifest_builder/resource_builder.rb'
+
+Rails/HasAndBelongsToMany:
   Exclude:
     - 'spec/views/hyrax/my/_list_works.html.erb_spec.rb'
     - 'app/helpers/hyrax/hyrax_helper_behavior.rb'
