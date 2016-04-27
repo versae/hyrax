@@ -196,6 +196,9 @@ Hyrax::Engine.routes.draw do
   get 'featured_researchers' => 'content_blocks#index', as: :featured_researchers
   post '/tinymce_assets' => 'tinymce_assets#create'
 
+  mount Flip::Engine => '/admin/features'
+  mount Riiif::Engine => '/images'
+
   get 'about' => 'pages#show', id: 'about_page'
 
   # Static page routes
