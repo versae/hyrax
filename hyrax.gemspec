@@ -89,4 +89,5 @@ EOF
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'i18n-debug' unless ENV['TRAVIS']
   spec.add_development_dependency 'i18n_yaml_sorter' unless ENV['TRAVIS']
+  spec.add_development_dependency 'i18n-tasks'
 end
