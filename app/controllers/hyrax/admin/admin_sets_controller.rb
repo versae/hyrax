@@ -91,6 +91,10 @@ module Hyrax
         authorize! :read, :admin_dashboard
       end
 
+      def authorize_edits
+        @admin_set.to_solr["edit_access_person_ssim"].include? current_user.email
+      end
+
       # Overriding the way that the search builder is initialized
       def list_search_builder
         list_search_builder_class.new(self, :read)
